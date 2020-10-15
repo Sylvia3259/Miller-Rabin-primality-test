@@ -1,9 +1,17 @@
 ﻿#include <iostream>
 #include <cstdint>
 
+#ifdef __SIZEOF_INT128__
+typedef unsigned __int128 uint128_t;
+#endif
+
 bool isPrime(const uint64_t n);
+#ifdef __SIZEOF_INT128__
+inline uint64_t powmod(uint128_t a, uint64_t b, const uint64_t m);
+#else
 inline uint64_t powmod(uint64_t a, uint64_t b, const uint64_t m);
 inline uint64_t mulmod(uint64_t a, uint64_t b, const uint64_t m);
+#endif
 
 int main() {
 	uint64_t n;
@@ -43,6 +51,20 @@ bool isPrime(const uint64_t n) {
 	return true;
 }
 
+#ifdef __SIZEOF_INT128__
+inline uint64_t powmod(uint128_t a, uint64_t b, const uint64_t m) {
+	uint64_t ret = 1;
+	a %= m;
+
+	while (b) {
+		if (b & 1) ret = (ret * a) % m;
+		a = (a * a) % m;
+		b >>= 1;
+	}
+
+	return ret;
+}
+#else
 inline uint64_t powmod(uint64_t a, uint64_t b, const uint64_t m) {
 	uint64_t ret = 1;
 	a %= m;
@@ -55,7 +77,9 @@ inline uint64_t powmod(uint64_t a, uint64_t b, const uint64_t m) {
 
 	return ret;
 }
+#endif
 
+#ifndef __SIZEOF_INT128__
 inline uint64_t mulmod(uint64_t a, uint64_t b, const uint64_t m) {
 	uint64_t ret = 0, tmp;
 	b %= m;
@@ -74,3 +98,4 @@ inline uint64_t mulmod(uint64_t a, uint64_t b, const uint64_t m) {
 
 	return ret;
 }
+#endif
