@@ -1,4 +1,4 @@
-# [Miller-Rabin primality test](https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test)
+# [Miller–Rabin primality test](https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test)
 <pre>
 <b>Input #1</b>: <i>n</i> &gt; 3, an odd integer to be tested for primality
 <b>Input #2</b>: <i>k</i>, the number of rounds of testing to perform
