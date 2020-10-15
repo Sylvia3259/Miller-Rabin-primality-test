@@ -1,10 +1,10 @@
 ﻿#include <iostream>
-#include <stdint.h>
+#include <cstdint>
 
 bool isPrime(const uint32_t n);
 inline uint32_t powmod(uint64_t a, uint32_t b, const uint32_t m);
 
-int main(void) {
+int main() {
 	uint32_t n;
 	std::cin >> n;
 	std::cout << isPrime(n);
