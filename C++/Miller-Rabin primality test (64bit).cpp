@@ -1,9 +1,9 @@
 ﻿#include <iostream>
 #include <stdint.h>
 
-bool isPrime(uint64_t n);
-inline uint64_t powmod(uint64_t a, uint64_t b, uint64_t m);
-inline uint64_t mulmod(uint64_t a, uint64_t b, uint64_t m);
+bool isPrime(const uint64_t n);
+inline uint64_t powmod(uint64_t a, uint64_t b, const uint64_t m);
+inline uint64_t mulmod(uint64_t a, uint64_t b, const uint64_t m);
 
 int main(void) {
 	uint64_t n;
@@ -12,7 +12,7 @@ int main(void) {
 	return 0;
 }
 
-bool isPrime(uint64_t n) {
+bool isPrime(const uint64_t n) {
 	// Limits the value of n to odd numbers more than 3
 	if (n <= 1) return false;
 	if (n == 2 || n == 3) return true;
@@ -43,7 +43,7 @@ bool isPrime(uint64_t n) {
 	return true;
 }
 
-inline uint64_t powmod(uint64_t a, uint64_t b, uint64_t m) {
+inline uint64_t powmod(uint64_t a, uint64_t b, const uint64_t m) {
 	uint64_t ret = 1;
 	a %= m;
 
@@ -56,7 +56,7 @@ inline uint64_t powmod(uint64_t a, uint64_t b, uint64_t m) {
 	return ret;
 }
 
-inline uint64_t mulmod(uint64_t a, uint64_t b, uint64_t m) {
+inline uint64_t mulmod(uint64_t a, uint64_t b, const uint64_t m) {
 	uint64_t ret = 0, tmp;
 	b %= m;
 

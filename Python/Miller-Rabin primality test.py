@@ -1,4 +1,4 @@
-primes = ( 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97 )
+aList = ( 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97 )
 
 def isPrime(n):
     # Limits the value of n to odd numbers more than 3
@@ -14,7 +14,7 @@ def isPrime(n):
     while not d & 1:
         r, d = r + 1, d >> 1
     
-    for a in primes:
+    for a in aList:
         # pick a integer a in the range [2, n − 2]
         if not 2 <= a <= n - 2:
             break
